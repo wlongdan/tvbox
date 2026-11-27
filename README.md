@@ -6,14 +6,22 @@
 ## 怎么用（电视端填这一个地址）
 
 ```
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/tv.json
+```
+
+备用（CDN 被墙或抽风时换，同一份内容）：
+
+```
 https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
 ```
 
-备用（jsDelivr 被墙或抽风时换，永远最新）：
+锁定版（内容永久固定，不想被后续改动影响就用这条）：
 
 ```
-https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@d07ae1a0a2d64facda1d9b2374956cbbf90e9fff/tv.json
 ```
+
+主入口文件名用 `tv.json` 而不是 `config.json`：这个库早先是私有仓，jsDelivr 存过一份很旧的 `config.json`（19 站版）且刷不干净，换新名字直接绕开。
 
 TVBox 操作：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新。
 影视仓/肥猫/影视TV 同理，找「配置地址 / 接口」填这一行。
@@ -61,7 +69,7 @@ TVBox 操作：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新
 所以改成**多仓入口**：填 `多仓.json` 的地址后，TVBox 会多出一个「饭太硬官方仓」，由电视直连它自己的服务器取 jar，成功率最高，也不会把主配置拖挂。
 
 ```
-https://raw.githubusercontent.com/wlongdan/tvbox/main/multi.json
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/multi.json
 ```
 
 ## 直播源（只留备选线路）
