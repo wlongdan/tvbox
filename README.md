@@ -5,22 +5,28 @@
 ## 怎么用（电视端填这一个地址）
 
 ```
-https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/tv.json
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@99491f1a49c5703ef7e41011f38ea442e4f5bbe7/tv.json
 ```
 
-备用（CDN 不通时换，内容相同）：
+CDN 版（国内节点更快，内容与上面完全一致，永久固定）：
+
+```
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@99491f1a49c5703ef7e41011f38ea442e4f5bbe7/tv.json
+```
+
+备用（raw 被墙时换）：
+
+```
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@99491f1a49c5703ef7e41011f38ea442e4f5bbe7/tv.json
+```
+
+TVBox：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新。影视仓 / 影视TV / 蜂蜜 同理，找「配置地址」填这一行。
+
+raw 备用：
 
 ```
 https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
 ```
-
-锁定版（内容永久固定）：
-
-```
-https://cdn.jsdelivr.net/gh/wlongdan/tvbox@4353a112d2a325322151fd59f488874c09f7900e/tv.json
-```
-
-TVBox：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新。影视仓 / 影视TV / 蜂蜜 同理，找「配置地址」填这一行。
 
 ## 文件说明
 
