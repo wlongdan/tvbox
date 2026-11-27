@@ -3,7 +3,7 @@
   "urls": [
     {
       "name": "自用·13站精筛(无广告直连)",
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/config.json"
+      "url": "https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json"
     },
     {
       "name": "饭太硬官方仓(spider类，靠jar)",

@@ -1,0 +1,13 @@
+{
+  "name": "我的多仓（自用 + 饭太硬）",
+  "urls": [
+    {
+      "name": "自用·13站精筛(无广告直连)",
+      "url": "https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json"
+    },
+    {
+      "name": "饭太硬官方仓(spider类，靠jar)",
+      "url": "http://饭太硬.top/tv"
+    }
+  ]
+}

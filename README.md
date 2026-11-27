@@ -6,7 +6,7 @@
 ## 怎么用（电视端填这一个地址）
 
 ```
-https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/config.json
+https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
 ```
 
 备用（jsDelivr 被墙或抽风时换，永远最新）：
@@ -61,7 +61,7 @@ TVBox 操作：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新
 所以改成**多仓入口**：填 `多仓.json` 的地址后，TVBox 会多出一个「饭太硬官方仓」，由电视直连它自己的服务器取 jar，成功率最高，也不会把主配置拖挂。
 
 ```
-https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/多仓.json
+https://raw.githubusercontent.com/wlongdan/tvbox/main/multi.json
 ```
 
 ## 直播源（只留备选线路）
