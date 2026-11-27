@@ -19,15 +19,6 @@
       "key": "s02"
     },
     {
-      "name": "精品资源",
-      "type": 1,
-      "api": "http://www.jingpinx.com/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "key": "s03"
-    },
-    {
       "name": "爱奇艺资源",
       "type": 1,
       "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
@@ -44,15 +35,6 @@
       "quickSearch": 1,
       "filterable": 1,
       "key": "s05"
-    },
-    {
-      "name": "番茄资源",
-      "type": 1,
-      "api": "https://fqzy.me/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "key": "s06"
     },
     {
       "name": "无尽资源",
