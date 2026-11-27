@@ -25,7 +25,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s04"
+      "key": "s03"
     },
     {
       "name": "电影天堂",
@@ -34,7 +34,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s05"
+      "key": "s04"
     },
     {
       "name": "无尽资源",
@@ -43,7 +43,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s07"
+      "key": "s05"
     },
     {
       "name": "墨斗资源",
@@ -52,7 +52,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s08"
+      "key": "s06"
     },
     {
       "name": "闪电资源",
@@ -61,7 +61,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s09"
+      "key": "s07"
     },
     {
       "name": "10010888",
@@ -70,7 +70,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s10"
+      "key": "s08"
     },
     {
       "name": "荣耀资源",
@@ -79,7 +79,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s11"
+      "key": "s09"
     },
     {
       "name": "豪华资源",
@@ -88,7 +88,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s12"
+      "key": "s10"
     },
     {
       "name": "红牛资源",
@@ -97,28 +97,21 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "key": "s13"
+      "key": "s11"
     }
   ],
   "lives": [
     {
-      "name": "央视卫视·高清优先",
+      "name": "央视卫视·51频道多线路",
       "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@7125f1c890c0c89e61faf1eeb24b2b3693a4e4a9/live.m3u",
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@4353a112d2a325322151fd59f488874c09f7900e/live.m3u",
       "playerType": 1,
       "timeout": 20
     },
     {
-      "name": "央视卫视·低延迟",
+      "name": "央视卫视·全部线路池",
       "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@7125f1c890c0c89e61faf1eeb24b2b3693a4e4a9/live-fast.m3u",
-      "playerType": 1,
-      "timeout": 15
-    },
-    {
-      "name": "央视卫视·全部线路",
-      "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@7125f1c890c0c89e61faf1eeb24b2b3693a4e4a9/live-full.m3u",
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@4353a112d2a325322151fd59f488874c09f7900e/live-full.m3u",
       "playerType": 1,
       "timeout": 20
     }

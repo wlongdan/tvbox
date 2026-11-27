@@ -1,7 +1,6 @@
 # tvbox — 自用电视配置（自建仓库）
 
-这个仓库只放我自己在用的 TVBox 配置：**13 个精筛点播站** + **央视/卫视直播（只留备选线路）**。
-所有地址都是本机逐条实测过的，判据写在文末。
+只放自己在用的 TVBox 配置：**11 个精筛点播站** + **央视/卫视直播 51 频道（每台 2-3 条线路，卡了能切）**。
 
 ## 怎么用（电视端填这一个地址）
 
@@ -9,82 +8,72 @@
 https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/tv.json
 ```
 
-备用（CDN 被墙或抽风时换，同一份内容）：
+备用（CDN 不通时换，内容相同）：
 
 ```
 https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
 ```
 
-锁定版（内容永久固定，不想被后续改动影响就用这条）：
+锁定版（内容永久固定）：
 
 ```
-https://cdn.jsdelivr.net/gh/wlongdan/tvbox@d07ae1a0a2d64facda1d9b2374956cbbf90e9fff/tv.json
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@4353a112d2a325322151fd59f488874c09f7900e/tv.json
 ```
 
-主入口文件名用 `tv.json` 而不是 `config.json`：这个库早先是私有仓，jsDelivr 存过一份很旧的 `config.json`（19 站版）且刷不干净，换新名字直接绕开。
-
-TVBox 操作：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新。
-影视仓/肥猫/影视TV 同理，找「配置地址 / 接口」填这一行。
+TVBox：设置 → 配置地址 → 粘贴 → 确定 → 回首页刷新。影视仓 / 影视TV / 蜂蜜 同理，找「配置地址」填这一行。
 
 ## 文件说明
 
 | 文件 | 内容 |
 | --- | --- |
-| `tv.json` | 主入口：13 个点播站 + 3 组直播（电视上填这个） |
-| `config.json` | 与 `tv.json` 内容相同，仅作为 raw 备用通道 |
-| `live.m3u` | 直播·**只留备选线路** 50 频道（46 个 1080p + 4 个 720p，全部实拉切片验证） |
-| `live-fast.m3u` | 直播·低延迟 4 条（切片 ≤8 秒，换台最快） |
-| `live-full.m3u` | 直播·全部线路 155 条（备选全挂时的后备池） |
+| `tv.json` | 主入口：11 个点播站 + 2 组直播 |
+| `config.json` | 与 `tv.json` 相同，raw 备用通道 |
+| `live.m3u` | 直播主清单：**51 频道 / 144 条线路**，同台 2-3 条不同服务器，卡了直接切下一条 |
+| `live-full.m3u` | 全部线路池（155 条），主清单里某台全挂了再来这里找 |
 
-## 点播源（13 站，全部直连采集，按响应快慢排序）
+## 点播源（11 站，全部直连采集、支持搜索）
 
-| # | 站点 | 接口 | 列表 | 详情 |
-| --- | --- | --- | --- | --- |
-| 1 | 巨量资源 | `https://api.juliang.live/api/provide/vod` | 0.66s | 1.12s |
-| 2 | 360资源 | `https://360zy.com/api.php/provide/vod` | 0.80s | 0.98s |
-| 3 | 精品资源 | `http://www.jingpinx.com/api.php/provide/vod` | 0.79s | 1.16s |
-| 4 | 爱奇艺资源 | `https://www.iqiyizyapi.com/api.php/provide/vod` | 0.87s | 1.37s |
-| 5 | 电影天堂 | `https://dyttzy.tv/api.php/provide/vod` | 0.92s | 1.94s |
-| 6 | 番茄资源 | `https://fqzy.me/api.php/provide/vod` | 1.25s | 1.82s |
-| 7 | 无尽资源 | `https://api.wujinapi.com/api.php/provide/vod` | 0.66s | 3.93s |
-| 8 | 墨斗资源 | `https://www.mdzyapi.com/api.php/provide/vod` | 1.56s | 2.92s |
-| 9 | 闪电资源 | `https://sdzyapi.com/api.php/provide/vod` | 0.89s | 5.60s |
-| 10 | 10010888 | `https://cj.10010888.xyz/api.php/provide/vod` | 1.62s | 4.83s |
-| 11 | 荣耀资源 | `https://cj.rytvapi.com/api.php/provide/vod` | 3.65s | 1.50s |
-| 12 | 豪华资源 | `https://hhzyapi.com/api.php/provide/vod` | 4.17s | 2.79s |
-| 13 | 红牛资源 | `https://www.hongniuzy2.com/api.php/provide/vod` | 4.73s | 3.60s |
+| # | 站点 | 接口 |
+| --- | --- | --- |
+| 1 | 巨量资源 | `https://api.juliang.live/api/provide/vod` |
+| 2 | 360资源 | `https://360zy.com/api.php/provide/vod` |
+| 3 | 爱奇艺资源 | `https://www.iqiyizyapi.com/api.php/provide/vod` |
+| 4 | 电影天堂 | `https://dyttzy.tv/api.php/provide/vod` |
+| 5 | 无尽资源 | `https://api.wujinapi.com/api.php/provide/vod` |
+| 6 | 墨斗资源 | `https://www.mdzyapi.com/api.php/provide/vod` |
+| 7 | 闪电资源 | `https://sdzyapi.com/api.php/provide/vod` |
+| 8 | 10010888 | `https://cj.10010888.xyz/api.php/provide/vod` |
+| 9 | 荣耀资源 | `https://cj.rytvapi.com/api.php/provide/vod` |
+| 10 | 豪华资源 | `https://hhzyapi.com/api.php/provide/vod` |
+| 11 | 红牛资源 | `https://www.hongniuzy2.com/api.php/provide/vod` |
 
 入选门槛（缺一条都淘汰）：
 
-- **直连采集（type=1）**，不依赖 jar/spider —— 壳子的 jar 版本一错、或站点后端换接口，spider 站就整片黑屏，这是「很多片播不了」的头号原因。
+- **直连采集（type=1）**，不依赖 jar。壳子的 jar 版本一错或站点换后端，spider 站就整片黑屏。
 - 播放地址**不带时效 token**（`auth=` / `token=` / `expire=` / `sign=`），带签名的过几天整站作废。
-- 播放清单**没有 CUE-OUT / CUE-IN 广告插播标记**。
-- 列表与详情接口秒级响应，切片时长不超 20 秒。
-- 13 站全部**支持关键词搜索**（用「庆余年」实测有结果），这是「片子搜不到」的关键，不靠堆数量。
+- 播放清单**没有 CUE-OUT / CUE-IN 广告插播**，不走「前三分钟能放、后面全是广告」那种源。
+- 列表与详情秒级响应，切片不超 20 秒。
+- 用「庆余年」实测**搜索有结果**——电视上找不到片，八成就是这一步废了。
 
-本轮已剔除的站（共 7 个，都不再出现）：
+已剔除的站（不再出现）：樱花 `yhzy.cc`、急速 `jszyapi.com`、玉兔 `apiyutu.com`、U酷 `api.ukuapi88.com`、光速 `api.guangsuapi.com`、金鹰 `jyzyapi.com`、精品 `jingpinx.com`、番茄 `fqzy.me`，以及饭太硬整套 spider 资源（依赖 jar，CDN 对 `.jar` 一律 403，接进来会整片黑屏）。
 
-- 樱花资源 `yhzy.cc`、急速资源 `jszyapi.com`、玉兔资源 `apiyutu.com`、U酷资源 `api.ukuapi88.com`、光速资源 `api.guangsuapi.com`、金鹰资源 `jyzyapi.com` —— 详情接口 4~7 秒，电视上点进去要转很久，其中几个还带 `auth=` 签名，过几天整站作废。
-- 饭太硬的资源（`http://饭太硬.top/tv`）—— 它全是 spider 类（type=3），必须配它自己的 `fty.jar` 才能跑；而 jsDelivr 对所有 `.jar` 一律 403、raw 在国内常被挡，jar 托不住，接进来只会整片黑屏。整套配置（含多仓入口）已一并删除。
+## 直播源：51 频道，每台 2-3 条线路
 
-## 直播源（只留备选线路）
+央视 19 个：CCTV-1~17、CCTV-5+、CGTN。卫视 32 个：北京、东方、江苏、浙江、湖南、湖北、广东、深圳、安徽、山东、天津、重庆、四川、河南、河北、辽宁、吉林、黑龙江、东南、江西、广西、贵州、云南、陕西、甘肃、青海、宁夏、新疆、内蒙古、西藏、海南、山西。
 
-50 个频道：CCTV-1/2/3/4/5/5+/6/7/8/9/10/11/12/13/14/15/16/17、CGTN，以及北京、东方、江苏、浙江、湖南、湖北、广东、深圳、安徽、山东、天津、重庆、四川、河南、河北、辽宁、吉林、黑龙江、东南、江西、广西、贵州、云南、陕西、甘肃、青海、宁夏、新疆、内蒙古、西藏、三沙等卫视。
+怎么挑的：
 
-做过的调整：
-
-- **默认只留「备」线路**，实测备选比首选稳（首选的 `107.150.60.122`/`38.75.136.137` 经常抽风）。
-- 没有备选、或备选拉不动的频道（CCTV-2、14、15、16、湖南卫视）用首选兜底，并在说明里标注。
-- 海南卫视：唯一的备选线路切片下载失败，已从清单移出，宁缺不假。
-- CGTN 换成 `0472.org` 的 720p 线路（该地址是嵌套多码率清单，需进两层才取到真实切片）。
-- 分辨率不是猜标签：逐条拉切片解 TS 的 H.264/HEVC SPS 读真实画面尺寸 → 46 个 1920×1072、4 个 1280×720。
+- **每台 2-3 条，且尽量落在不同服务器**，一条卡了切下一条，不用退回列表。
+- 优先官方 / 播控 CDN 的线路（首包 <1 秒），其次才是 IPTV 镜像台。
+- 已剔除：16×16 的假高清（`jsws4k`）、4K 但码率跟不上的（河北 `live101`）。
+- 个别台全网只有一个源（CGTN 只有 0472 一条主源 + 一条镜像变体），已如实标注。
 
 ## 更新与自查
 
-- jsDelivr 缓存最长约 12 小时；急用走 raw 地址，或换成锁版本地址（`@<commit sha>`）。
-- 加频道：按 `#EXTINF:-1 tvg-name="频道名" group-title="央视",频道名` 追加一行地址。
+- 改完仓库，raw 立即生效；jsDelivr 走锁版本号（`@<commit sha>`）。
+- 加频道：`#EXTINF:-1 tvg-name="频道名" group-title="央视",频道名·线路1` 后面跟地址，同台再加「·线路2」。
+- 某台卡：先在 `live.m3u` 里切该台的线路2/3，全挂再去 `live-full.m3u` 找同名。
 - 不写死 EPG/台标，避免第三方 EPG 挂掉导致进直播页卡死。
-- 某站失效就按同一门槛重测替换：列表 200 + 播放地址无签名 + 清单无广告标记 + 详情秒级。
 
 ## 说明
 
