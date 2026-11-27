@@ -1,0 +1,144 @@
+{
+  "sites": [
+    {
+      "name": "巨量资源",
+      "type": 1,
+      "api": "https://api.juliang.live/api/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s01"
+    },
+    {
+      "name": "360资源",
+      "type": 1,
+      "api": "https://360zy.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s02"
+    },
+    {
+      "name": "精品资源",
+      "type": 1,
+      "api": "http://www.jingpinx.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s03"
+    },
+    {
+      "name": "爱奇艺资源",
+      "type": 1,
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s04"
+    },
+    {
+      "name": "电影天堂",
+      "type": 1,
+      "api": "https://dyttzy.tv/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s05"
+    },
+    {
+      "name": "番茄资源",
+      "type": 1,
+      "api": "https://fqzy.me/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s06"
+    },
+    {
+      "name": "无尽资源",
+      "type": 1,
+      "api": "https://api.wujinapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s07"
+    },
+    {
+      "name": "墨斗资源",
+      "type": 1,
+      "api": "https://www.mdzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s08"
+    },
+    {
+      "name": "闪电资源",
+      "type": 1,
+      "api": "https://sdzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s09"
+    },
+    {
+      "name": "10010888",
+      "type": 1,
+      "api": "https://cj.10010888.xyz/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s10"
+    },
+    {
+      "name": "荣耀资源",
+      "type": 1,
+      "api": "https://cj.rytvapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s11"
+    },
+    {
+      "name": "豪华资源",
+      "type": 1,
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s12"
+    },
+    {
+      "name": "红牛资源",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "key": "s13"
+    }
+  ],
+  "lives": [
+    {
+      "name": "央视卫视·高清优先",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@7125f1c890c0c89e61faf1eeb24b2b3693a4e4a9/live.m3u",
+      "playerType": 1,
+      "timeout": 20
+    },
+    {
+      "name": "央视卫视·低延迟",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@7125f1c890c0c89e61faf1eeb24b2b3693a4e4a9/live-fast.m3u",
+      "playerType": 1,
+      "timeout": 15
+    },
+    {
+      "name": "央视卫视·全部线路",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@7125f1c890c0c89e61faf1eeb24b2b3693a4e4a9/live-full.m3u",
+      "playerType": 1,
+      "timeout": 20
+    }
+  ]
+}
