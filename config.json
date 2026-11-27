@@ -2,6 +2,15 @@
   "sites": [
     {
       "key": "s01",
+      "name": "巨量资源",
+      "type": 1,
+      "api": "https://api.juliang.live/api/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s02",
       "name": "360资源",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod",
@@ -10,7 +19,25 @@
       "filterable": 1
     },
     {
-      "key": "s02",
+      "key": "s03",
+      "name": "精品资源",
+      "type": 1,
+      "api": "http://www.jingpinx.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s04",
+      "name": "爱奇艺资源",
+      "type": 1,
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s05",
       "name": "9号资源",
       "type": 1,
       "api": "https://fhapi9.com/api.php/provide/vod",
@@ -19,7 +46,25 @@
       "filterable": 1
     },
     {
-      "key": "s03",
+      "key": "s06",
+      "name": "电影天堂",
+      "type": 1,
+      "api": "https://dyttzy.tv/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s07",
+      "name": "番茄资源",
+      "type": 1,
+      "api": "https://fqzy.me/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s08",
       "name": "无尽资源",
       "type": 1,
       "api": "https://api.wujinapi.com/api.php/provide/vod",
@@ -28,7 +73,16 @@
       "filterable": 1
     },
     {
-      "key": "s04",
+      "key": "s09",
+      "name": "樱花资源",
+      "type": 1,
+      "api": "https://yhzy.cc/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s10",
       "name": "极速资源",
       "type": 1,
       "api": "https://jszyapi.com/api.php/provide/vod",
@@ -37,7 +91,16 @@
       "filterable": 1
     },
     {
-      "key": "s05",
+      "key": "s11",
+      "name": "墨斗资源",
+      "type": 1,
+      "api": "https://www.mdzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s12",
       "name": "闪电资源",
       "type": 1,
       "api": "https://sdzyapi.com/api.php/provide/vod",
@@ -46,7 +109,52 @@
       "filterable": 1
     },
     {
-      "key": "s06",
+      "key": "s13",
+      "name": "10010888",
+      "type": 1,
+      "api": "https://cj.10010888.xyz/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s14",
+      "name": "荣耀资源",
+      "type": 1,
+      "api": "https://cj.rytvapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s15",
+      "name": "玉兔资源",
+      "type": 1,
+      "api": "https://apiyutu.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s16",
+      "name": "U酷资源",
+      "type": 1,
+      "api": "https://api.ukuapi88.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s17",
+      "name": "豪华资源",
+      "type": 1,
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s18",
       "name": "红牛资源",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod",
@@ -55,7 +163,7 @@
       "filterable": 1
     },
     {
-      "key": "s07",
+      "key": "s19",
       "name": "光速资源",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod",
@@ -64,7 +172,7 @@
       "filterable": 1
     },
     {
-      "key": "s08",
+      "key": "s20",
       "name": "金鹰资源",
       "type": 1,
       "api": "https://jyzyapi.com/api.php/provide/vod",
