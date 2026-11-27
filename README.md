@@ -5,11 +5,19 @@
 
 ## 怎么用（电视端填这一个地址）
 
+长期主地址（自动跟随仓库更新，jsDelivr 有 12 小时缓存）：
+
 ```
 https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/config.json
 ```
 
-备用地址（jsDelivr 被墙或抽风时换这个）：
+想立刻拿到最新版（锁版本，不会走缓存，适合刚改完就上电视）：
+
+```
+https://cdn.jsdelivr.net/gh/wlongdan/tvbox@53d2565ae0fd38cc4d2006f60e86dccb8f0eb2a4/config.json
+```
+
+备用地址（jsDelivr 被墙或抽风时换这个，永远是最新）：
 
 ```
 https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
