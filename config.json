@@ -1,0 +1,99 @@
+{
+  "sites": [
+    {
+      "key": "s01",
+      "name": "360资源",
+      "type": 1,
+      "api": "https://360zy.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s02",
+      "name": "9号资源",
+      "type": 1,
+      "api": "https://fhapi9.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s03",
+      "name": "无尽资源",
+      "type": 1,
+      "api": "https://api.wujinapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s04",
+      "name": "极速资源",
+      "type": 1,
+      "api": "https://jszyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s05",
+      "name": "闪电资源",
+      "type": 1,
+      "api": "https://sdzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s06",
+      "name": "红牛资源",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s07",
+      "name": "光速资源",
+      "type": 1,
+      "api": "https://api.guangsuapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "s08",
+      "name": "金鹰资源",
+      "type": 1,
+      "api": "https://jyzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    }
+  ],
+  "lives": [
+    {
+      "name": "央视卫视·高清优先",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/live.m3u",
+      "playerType": 1,
+      "timeout": 20
+    },
+    {
+      "name": "央视卫视·低延迟",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/live-fast.m3u",
+      "playerType": 1,
+      "timeout": 15
+    },
+    {
+      "name": "央视卫视·全部线路",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/live-full.m3u",
+      "playerType": 1,
+      "timeout": 20
+    }
+  ]
+}
