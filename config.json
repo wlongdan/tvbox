@@ -122,21 +122,21 @@
     {
       "name": "央视卫视·高清优先",
       "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/live.m3u",
+      "url": "https://raw.githubusercontent.com/wlongdan/tvbox/main/live.m3u",
       "playerType": 1,
       "timeout": 20
     },
     {
       "name": "央视卫视·低延迟",
       "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/live-fast.m3u",
+      "url": "https://raw.githubusercontent.com/wlongdan/tvbox/main/live-fast.m3u",
       "playerType": 1,
       "timeout": 15
     },
     {
       "name": "央视卫视·全部线路",
       "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/wlongdan/tvbox@main/live-full.m3u",
+      "url": "https://raw.githubusercontent.com/wlongdan/tvbox/main/live-full.m3u",
       "playerType": 1,
       "timeout": 20
     }
