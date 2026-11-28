@@ -109,6 +109,60 @@ def check_line(url):
     return True, {"cost": cost, "m3u8_ms": ms, "seg_ms": seg_ms, "dur": round(dur, 1), "res": res}
 
 
+def parse_classes(txt):
+    """解析分类表，返回 [(id, name)]，兼容 JSON 与 XML。"""
+    out = []
+    if txt.strip().startswith("{"):
+        try:
+            d = json.loads(txt)
+        except Exception:
+            return out
+        for c in d.get("class") or []:
+            out.append((str(c.get("type_id")), str(c.get("type_name") or "").strip()))
+        return out
+    for m in re.finditer(r'<ty id="([^"]+)">([^<]+)</ty>', txt):
+        out.append((m.group(1), m.group(2).strip()))
+    return out
+
+
+def cat_total(api, tid):
+    """某分类第一页的 total，取不到返回 None。"""
+    url = api + ("&" if "?" in api else "?") + "ac=videolist&t=%s&pg=1" % tid
+    body, _ = get(url, timeout=10, cap=2 * 1024 * 1024)
+    if not body:
+        return None
+    txt = body.decode("utf-8", "ignore")
+    m = re.search(r'"total"\s*:\s*"?(\d+)', txt) or re.search(r'total="(\d+)"', txt)
+    return int(m.group(1)) if m else None
+
+
+def check_categories(site):
+    """返回 (保留的分类名, 要删的空分类名)；接口异常时返回 (None, [])。"""
+    api = site["api"]
+    cats = site.get("categories") or []
+    body, _ = get(api + ("&" if "?" in api else "?") + "ac=list", timeout=12, cap=2 * 1024 * 1024)
+    if not body:
+        return None, []
+    classes = parse_classes(body.decode("utf-8", "ignore"))
+    if not classes:
+        return None, []
+    by_name = {}
+    for cid, name in classes:
+        by_name.setdefault(name, cid)
+    keep, drop = [], []
+    for name in cats:
+        cid = by_name.get(name)
+        if cid is None:
+            drop.append(name)
+            continue
+        tot = cat_total(api, cid)
+        if tot is None or tot > 0:
+            keep.append(name)
+        else:
+            drop.append(name)
+    return keep, drop
+
+
 def write_live(groups, path):
     out = ["#EXTM3U"]
     for tname, g in groups.items():
@@ -187,6 +241,23 @@ def main():
                 print("  → 恢复 %s" % pst["name"])
 
     changed = len(keep) != len(cfg["sites"]) or report["restored"]
+
+    # ---------- 分类标签清洗 ----------
+    print("== 分类标签检查 ==")
+    cat_targets = [s for s in keep if s.get("categories")]
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        cat_res = list(ex.map(check_categories, cat_targets))
+    cat_dropped = {}
+    for s, (keepc, drop) in zip(cat_targets, cat_res):
+        if keepc is None or len(keepc) < 2:      # 接口异常，或剩不下东西，不动
+            continue
+        if drop:
+            s["categories"] = keepc
+            cat_dropped[s["key"]] = drop
+            print("  - %-10s 删除空分类 %s" % (s["key"], " ".join(drop)))
+    report["cats_dropped"] = cat_dropped
+
+    changed = len(keep) != len(cfg["sites"]) or report["restored"] or bool(cat_dropped)
     if changed:
         order = {s["key"]: i for i, s in enumerate(cfg["sites"])}
         keep.sort(key=lambda s: order.get(s["key"], 999))
@@ -207,8 +278,13 @@ def main():
     with ThreadPoolExecutor(max_workers=10) as ex:
         rs = list(ex.map(lambda j: check_line(j[2]), jobs))
     line_res = {}
+    ok_per_channel = {}
+    for (t, kind, u), (ok, info) in zip(jobs, rs):
+        ok_per_channel[t] = ok_per_channel.get(t, 0) + (1 if ok else 0)
     for (t, kind, u), (ok, info) in zip(jobs, rs):
         line_res[(t, kind, u)] = (ok, info)
+        if ok_per_channel.get(t, 0) == 0:
+            continue          # 整台线路在机房侧全不可达，属于出口限制，不改状态
         st = lines_state.setdefault(u, {"fail_streak": 0, "last_ok": "", "cost": None})
         if ok:
             st["fail_streak"] = 0
