@@ -3,195 +3,195 @@
  "sites": {
   "cxkjg": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "qlys": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "mjzy": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "hgyx": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "jhyy": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "s10010888": {
-   "fail_streak": 0,
-   "ok_streak": 1,
+   "fail_streak": 1,
+   "ok_streak": 0,
    "last_ok": "2026-11-28"
   },
   "juliang": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "dytt": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   },
   "hongniu": {
    "fail_streak": 0,
-   "ok_streak": 1,
+   "ok_streak": 2,
    "last_ok": "2026-11-28"
   }
  },
  "parked": {},
  "lines": {
   "http://198.204.228.26/live/cctv1hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv1hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cctv2hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/cctv2hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cctv3hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv3hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv4hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://38.75.136.137:98/gslb/dsdqpub/cctv4k.m3u8?auth=testpub": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cctv5hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://38.75.136.137:98/gslb/dsdqpub/cctv5p.m3u8?auth=testpub": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/cctv6hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv6hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cctv7hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv7hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv8hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv8k": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cctv9hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://192.151.150.154/live/cctv9hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv10hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv11hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://38.75.136.137:98/gslb/dsdqpub/cctv11hd.m3u8?auth=testpub": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cctv12hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv12hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://ali-m-l.cztv.com/channels/lantian/channel21/1080p.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv13hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv14hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/cctv14hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://74.91.26.218:82/live/cctv15hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://204.12.221.218:8181/3m1080p/cctv15.m3u8": {
-   "fail_streak": 1,
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://38.75.136.137:98/gslb/dsdqpub/cctv16hd.m3u8?auth=testpub": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://207.56.13.146:81/cdnlive/cctv16.m3u8": {
-   "fail_streak": 1,
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://74.91.26.218:82/live/cctv17hd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000246.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "https://0472.org/hls/cgtn.m3u8": {
    "fail_streak": 0,
@@ -202,143 +202,143 @@
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/bjwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000083.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "https://bp-resource-dfl.bestv.cn/148/3/video.m3u8": {
-   "fail_streak": 0,
+   "fail_streak": 2,
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/dfwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/jswshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "https://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/zjwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/hnwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/hbwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000102.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "https://txmov2.a.kwimgs.com/upic/2023/01/26/09/BMjAyMzAxMjYwOTE3NDVfNzM5MzQzNzIyXzk0NjI1OTUwNTA3XzBfMw==_b_B81ddda927d33445d544befd008e60109.mp4": {
-   "fail_streak": 1,
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://107.150.60.122/live/gdwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/szwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000100.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/ahwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/ahwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/sdwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/sdwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/tjwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=tjwshd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/cqwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cqwshd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/scwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=scwshd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/hawshd.m3u8": {
-   "fail_streak": 1,
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hawshd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000108.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hewshd": {
-   "fail_streak": 1,
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://198.204.228.26/live/lnwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
-  },
-  "http://107.150.60.122/live/lnwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
-  },
-  "http://107.150.60.122/live/jlwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
-  },
-  "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jlwshd": {
-   "fail_streak": 1,
-   "last_ok": ""
-  },
-  "https://idclive.hljtv.com:4430/live/hljws_own.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
-  "http://107.150.60.122/live/hljwshd.m3u8": {
+  "http://107.150.60.122/live/lnwshd.m3u8": {
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
+  },
+  "http://107.150.60.122/live/jlwshd.m3u8": {
+   "fail_streak": 2,
+   "last_ok": ""
+  },
+  "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jlwshd": {
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
+  },
+  "https://idclive.hljtv.com:4430/live/hljws_own.m3u8": {
    "fail_streak": 1,
+   "last_ok": "2026-11-28"
+  },
+  "http://107.150.60.122/live/hljwshd.m3u8": {
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://live.zohi.tv/video/s10001-fztv-3/index.m3u8": {
@@ -346,92 +346,92 @@
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/dnwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/jxwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jxwshd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/gxwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/gxwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/gzwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://204.12.221.218:8181/3m1080p/gzws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/ynwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://192.151.150.154/live/ynwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/snwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://192.151.150.154/live/snwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000119.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gswshd": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/qhws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000111.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/nxws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/nxws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/xjws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://198.204.228.26/live/xjws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://play1-qk.nmtv.cn/live/1769652018126032.m3u8": {
    "fail_streak": 0,
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/nmgws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/xzws.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   },
   "http://120.76.248.139/live/bfgd/4200000121.m3u8": {
    "fail_streak": 0,
@@ -442,16 +442,16 @@
    "last_ok": "2026-11-28"
   },
   "https://zby.130519.xyz/PLTV/11/224/3221226154/index.m3u8": {
-   "fail_streak": 1,
+   "fail_streak": 2,
    "last_ok": ""
   },
   "http://m3u8.channel.wsrtv.com.cn/cms/videos/nmip-media/channellive/channel7/playlist.m3u8": {
-   "fail_streak": 0,
+   "fail_streak": 1,
    "last_ok": "2026-11-28"
   },
   "http://107.150.60.122/live/sxwshd.m3u8": {
-   "fail_streak": 1,
-   "last_ok": ""
+   "fail_streak": 0,
+   "last_ok": "2026-11-28"
   }
  },
  "last_report": {
@@ -459,43 +459,46 @@
   "sites": {
    "cxkjg": {
     "ok": true,
-    "ms": 460
+    "ms": 657
    },
    "qlys": {
     "ok": true,
-    "ms": 691
+    "ms": 772
    },
    "mjzy": {
     "ok": true,
-    "ms": 2351
+    "ms": 1387
    },
    "hgyx": {
     "ok": true,
-    "ms": 942
+    "ms": 543
    },
    "jhyy": {
     "ok": true,
-    "ms": 318
+    "ms": 670
    },
    "s10010888": {
-    "ok": true,
-    "ms": 1176
+    "ok": false,
+    "ms": null,
+    "reason": "连不上",
+    "streak": 1
    },
    "juliang": {
     "ok": true,
-    "ms": 847
+    "ms": 1518
    },
    "dytt": {
     "ok": true,
-    "ms": 1364
+    "ms": 1291
    },
    "hongniu": {
     "ok": true,
-    "ms": 1279
+    "ms": 100
    }
   },
   "lines_swapped": [],
   "removed": [],
-  "restored": []
+  "restored": [],
+  "net_ok": true
  }
 }
