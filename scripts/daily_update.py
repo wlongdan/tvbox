@@ -115,11 +115,17 @@ def main():
             report["sites"][k] = {"ok": False, "ms": ms, "reason": extra, "streak": st["fail_streak"]}
             print("  × %-10s %s (连续失败 %d)" % (s["name"], extra, st["fail_streak"]))
 
+    ok_now = sum(1 for v in report["sites"].values() if v["ok"])
+    net_ok = ok_now >= max(1, len(cfg["sites"]) * 0.5)   # 半数以上可用才认为网络正常
+    report["net_ok"] = net_ok
+    if not net_ok:
+        print("  ! 本次可用站点仅 %d/%d，判定为网络异常，不做任何移出/交换" % (ok_now, len(cfg["sites"])))
+
     # 移出连续失败过多的站点
     keep = []
     for s in alive:
         st = sites_state[s["key"]]
-        if st["fail_streak"] >= FAIL_LIMIT and len(alive) - len(report["removed"]) > MIN_SITES:
+        if net_ok and st["fail_streak"] >= FAIL_LIMIT and len(alive) - len(report["removed"]) > MIN_SITES:
             parked[s["key"]] = s
             report["removed"].append(s["key"])
             print("  → 移出 %s（连续 %d 次失败）" % (s["name"], st["fail_streak"]))
@@ -179,7 +185,7 @@ def main():
             continue
         u1, u2 = urls[0], urls[1]
         f1 = lines_state.get(u1, {}).get("fail_streak", 0)
-        if f1 >= FAIL_LIMIT and lines_state.get(u2, {}).get("fail_streak", 0) == 0:
+        if net_ok and f1 >= FAIL_LIMIT and lines_state.get(u2, {}).get("fail_streak", 0) == 0:
             g["urls"][0], g["urls"][1] = u2, u1
             lines_state[u1]["fail_streak"] = 0
             swapped += 1
