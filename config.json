@@ -333,15 +333,9 @@
   ],
   "lives": [
     {
-      "name": "央视卫视·全部线路",
+      "name": "央视卫视",
       "type": 0,
       "url": "./live.m3u",
-      "playerType": 1
-    },
-    {
-      "name": "央视卫视·高清官方",
-      "type": 0,
-      "url": "./live-hd.m3u",
       "playerType": 1
     }
   ]

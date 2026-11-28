@@ -2,10 +2,10 @@
 """每日自检：点播站点可用性 + 直播线路可用性，保守调整后由 workflow 提交。
 
 设计原则：宁可少动也不误删。
-- 站点连续 3 次自检失败才移出（且剩余站点数不少于 6 个）；
-- 被移出的站点每天仍复检，连续 2 次恢复就加回；
-- 线路只在「线路1 连续 3 次失败且线路2 正常」时互换，绝不删台；
-- 全部正常时只更新 state.json，不动 config/live。
+- 站点连续 3 次自检失败才移出（且剩余站点数不少于 6 个），被移出的每天复检，连续 2 次恢复就加回。
+- 直播：节目列表固定 51 个频道、每个频道只露 1 条线路；备选线路全部放在 live-pool.m3u 后台。
+  某台的现用线路连续 2 天不通，就从池子里换一条当天测通的；换不动就保持原样，绝不删台。
+- 当天可用线路不足两成时判定为网络异常，整轮不做任何替换。
 """
 import json
 import os
@@ -22,13 +22,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = os.path.join(ROOT, "config.json")
 TV = os.path.join(ROOT, "tv.json")
 LIVE = os.path.join(ROOT, "live.m3u")
-HD = os.path.join(ROOT, "live-hd.m3u")
+POOL = os.path.join(ROOT, "live-pool.m3u")
 STATE = os.path.join(ROOT, "state.json")
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"}
-FAIL_LIMIT = 3      # 连续失败几次动配置
-RECOVER_LIMIT = 2   # 连续成功几次把站点加回
-MIN_SITES = 6       # 站点下限保护
+FAIL_LIMIT = 3        # 站点连续失败几次动配置
+RECOVER_LIMIT = 2     # 站点连续成功几次加回
+MIN_SITES = 6         # 站点下限保护
+SWITCH_LIMIT = 2      # 直播现用线路连续失败几次换备用
+MIN_LIVE_RATIO = 0.2  # 当天可用线路低于两成视为网络异常
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
@@ -57,9 +59,9 @@ def check_site(site):
 
 
 def load_lives(path):
-    """返回 [{tname, tid, group, urls:[...]}]"""
+    """返回 {频道名: {"tid","group","urls":[...]}}"""
     if not os.path.exists(path):
-        return []
+        return {}
     lines = [l.rstrip("\n") for l in open(path, encoding="utf-8") if l.strip() and not l.startswith("#EXTM3U")]
     groups = {}
     for i in range(0, len(lines) - 1, 2):
@@ -75,11 +77,45 @@ def load_lives(path):
 
 
 def check_line(url):
-    body, ms = get(url, timeout=10, cap=600000)
+    """m3u8 能解析 + 首分片可取，才算这条线路可用。"""
+    body, ms = get(url, timeout=8, cap=200000)
     if not body:
         return False, None
     txt = body.decode("utf-8", "ignore")
-    return ("#EXTINF" in txt or "#EXT-X-STREAM-INF" in txt), ms
+    base = url
+    res = ""
+    m = re.search(r"RESOLUTION=(\d+x\d+)", txt)
+    if m:
+        res = m.group(1)
+    if "#EXT-X-STREAM-INF" in txt:
+        nxt = [l.strip() for l in txt.splitlines() if l.strip() and not l.startswith("#")]
+        if not nxt:
+            return False, None
+        vurl = urllib.parse.urljoin(base, nxt[0])
+        d2, ms2 = get(vurl, timeout=8, cap=200000)
+        if not d2:
+            return False, None
+        txt, base = d2.decode("utf-8", "ignore"), vurl
+    segs = [l.strip() for l in txt.splitlines() if l.strip() and not l.startswith("#")]
+    if not segs:
+        return False, None
+    seg_url = urllib.parse.urljoin(base, segs[0])
+    d3, seg_ms = get(seg_url, timeout=8, cap=200000)
+    if not d3:
+        return False, None
+    durs = [float(x) for x in re.findall(r"#EXTINF:\s*([0-9.]+)", txt)]
+    dur = max(durs) if durs else 0
+    cost = (ms or 0) + (seg_ms or 0) + max(0, dur - 6) * 400
+    return True, {"cost": cost, "m3u8_ms": ms, "seg_ms": seg_ms, "dur": round(dur, 1), "res": res}
+
+
+def write_live(groups, path):
+    out = ["#EXTM3U"]
+    for tname, g in groups.items():
+        out.append('#EXTINF:-1 tvg-id="%s" tvg-name="%s" group-title="%s",%s' % (
+            g["tid"], tname, g["group"], tname))
+        out.append(g["urls"][0])
+    open(path, "w", encoding="utf-8").write("\n".join(out) + "\n")
 
 
 def main():
@@ -106,22 +142,20 @@ def main():
             st["fail_streak"] = 0
             st["ok_streak"] = st.get("ok_streak", 0) + 1
             st["last_ok"] = today
-            alive.append(s)
             report["sites"][k] = {"ok": True, "ms": ms}
         else:
             st["fail_streak"] = st.get("fail_streak", 0) + 1
             st["ok_streak"] = 0
-            alive.append(s)
             report["sites"][k] = {"ok": False, "ms": ms, "reason": extra, "streak": st["fail_streak"]}
             print("  × %-10s %s (连续失败 %d)" % (s["name"], extra, st["fail_streak"]))
+        alive.append(s)
 
     ok_now = sum(1 for v in report["sites"].values() if v["ok"])
-    net_ok = ok_now >= max(1, len(cfg["sites"]) * 0.5)   # 半数以上可用才认为网络正常
+    net_ok = ok_now >= max(1, len(cfg["sites"]) * 0.5)
     report["net_ok"] = net_ok
     if not net_ok:
-        print("  ! 本次可用站点仅 %d/%d，判定为网络异常，不做任何移出/交换" % (ok_now, len(cfg["sites"])))
+        print("  ! 本次可用站点仅 %d/%d，判定为网络异常，不做任何移出/替换" % (ok_now, len(cfg["sites"])))
 
-    # 移出连续失败过多的站点
     keep = []
     for s in alive:
         st = sites_state[s["key"]]
@@ -132,7 +166,6 @@ def main():
             continue
         keep.append(s)
 
-    # 复检已移出的站点
     if parked:
         print("== 复检已移出站点 ==")
         keys = list(parked)
@@ -154,44 +187,62 @@ def main():
 
     changed = len(keep) != len(cfg["sites"]) or report["restored"]
     if changed:
-        # 按原顺序重排：保留原来的顺序优先
         order = {s["key"]: i for i, s in enumerate(cfg["sites"])}
         keep.sort(key=lambda s: order.get(s["key"], 999))
         cfg["sites"] = keep
 
     # ---------- 直播线路 ----------
     print("== 直播线路自检 ==")
-    groups = load_lives(LIVE)
+    live_groups = load_lives(LIVE)
+    pool_groups = load_lives(POOL)
     jobs = []
-    for tname, g in groups.items():
-        for i, u in enumerate(g["urls"][:2]):
-            jobs.append((tname, i, u))
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    for t, g in live_groups.items():
+        jobs.append((t, "live", g["urls"][0]))
+    for t, g in pool_groups.items():
+        cur = (live_groups.get(t, {}).get("urls") or [None])[0]
+        for u in g["urls"]:
+            if u != cur:
+                jobs.append((t, "pool", u))
+    with ThreadPoolExecutor(max_workers=10) as ex:
         rs = list(ex.map(lambda j: check_line(j[2]), jobs))
-    line_ok = {}
-    for (tname, idx, u), (ok, ms) in zip(jobs, rs):
-        line_ok[(tname, idx)] = ok
-        st = lines_state.setdefault(u, {"fail_streak": 0, "last_ok": ""})
+    line_res = {}
+    for (t, kind, u), (ok, info) in zip(jobs, rs):
+        line_res[(t, kind, u)] = (ok, info)
+        st = lines_state.setdefault(u, {"fail_streak": 0, "last_ok": "", "cost": None})
         if ok:
             st["fail_streak"] = 0
             st["last_ok"] = today
+            st["cost"] = info["cost"]
         else:
             st["fail_streak"] = st.get("fail_streak", 0) + 1
+        if not ok and kind == "live":
+            print("  × %s 现用线路不通（连续 %d）" % (t, st["fail_streak"]))
+
+    live_ok = sum(1 for (t, kind, u), (ok, _) in line_res.items() if kind == "live" and ok)
+    live_total = len(live_groups)
+    live_net_ok = bool(net_ok and live_total and live_ok >= live_total * MIN_LIVE_RATIO)
+    report["live"] = {"ok": live_ok, "total": live_total, "net_ok": live_net_ok}
+    print("  现用线路可用 %d/%d" % (live_ok, live_total))
 
     swapped = 0
-    for tname, g in groups.items():
-        urls = g["urls"]
-        if len(urls) < 2:
+    for t, g in live_groups.items():
+        cur = g["urls"][0]
+        f = lines_state.get(cur, {}).get("fail_streak", 0)
+        if not live_net_ok or f < SWITCH_LIMIT:
             continue
-        u1, u2 = urls[0], urls[1]
-        f1 = lines_state.get(u1, {}).get("fail_streak", 0)
-        if net_ok and f1 >= FAIL_LIMIT and lines_state.get(u2, {}).get("fail_streak", 0) == 0:
-            g["urls"][0], g["urls"][1] = u2, u1
-            lines_state[u1]["fail_streak"] = 0
-            swapped += 1
-            report["lines_swapped"].append({"channel": tname, "promoted": u2, "demoted": u1})
-            print("  ↔ %-14s 线路2 提为线路1" % tname)
-    total_lines = sum(len(g["urls"]) for g in groups.values())
+        opts = [(line_res[(t, "pool", u)][1]["cost"], u)
+                for u in (pool_groups.get(t, {}).get("urls") or [])
+                if line_res.get((t, "pool", u), (False, None))[0]]
+        if not opts:
+            continue
+        opts.sort()
+        new = opts[0][1]
+        g["urls"][0] = new
+        lines_state.setdefault(new, {"fail_streak": 0, "last_ok": today, "cost": opts[0][0]})
+        lines_state[cur]["fail_streak"] = 0
+        swapped += 1
+        report["lines_swapped"].append({"channel": t, "to": new})
+        print("  ↔ %-13s 换成备用线路" % t)
 
     # ---------- 写回 ----------
     if not DRY:
@@ -200,28 +251,26 @@ def main():
             json.dump(cfg, open(TV, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
             print("已更新 config.json / tv.json（%d 站）" % len(cfg["sites"]))
         if swapped:
-            out = ["#EXTM3U"]
-            for tname, g in groups.items():
-                for i, u in enumerate(g["urls"], 1):
-                    out.append('#EXTINF:-1 tvg-id="%s" tvg-name="%s" group-title="%s",%s·线路%d' % (
-                        g["tid"], tname, g["group"], tname, i))
-                    out.append(u)
-            open(LIVE, "w", encoding="utf-8").write("\n".join(out) + "\n")
-            print("已更新 live.m3u（%d 条）" % sum(len(g["urls"]) for g in groups.values()))
+            write_live(live_groups, LIVE)
+            print("已更新 live.m3u（%d 频道）" % len(live_groups))
         state = {"updated": today, "sites": sites_state, "parked": parked,
                  "lines": lines_state, "last_report": report}
         json.dump(state, open(STATE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     okn = sum(1 for k, v in report["sites"].items() if v["ok"])
-    print("\n汇总：站点 %d/%d 可用，移出 %d，恢复 %d；线路 %d 条，交换 %d" % (
-        okn, len(cfg["sites"]), len(report["removed"]), len(report["restored"]), total_lines, swapped))
+    print("\n汇总：站点 %d/%d 可用，移出 %d，恢复 %d；直播 %d/%d 可用，换线 %d" % (
+        okn, len(cfg["sites"]), len(report["removed"]), len(report["restored"]),
+        live_ok, live_total, swapped))
     with open(os.path.join(ROOT, "last-check.md"), "w", encoding="utf-8") as f:
-        f.write("# 每日自检 %s\n\n- 站点：%d/%d 可用（移出 %d，恢复 %d）\n- 线路：%d 条（交换 %d）\n\n" % (
+        f.write("# 每日自检 %s\n\n- 点播：%d/%d 可用（移出 %d，恢复 %d）\n- 直播：%d/%d 个频道现用线路可用（换线 %d）\n\n" % (
             today, okn, len(cfg["sites"]), len(report["removed"]), len(report["restored"]),
-            total_lines, swapped))
+            live_ok, live_total, swapped))
         for k, v in report["sites"].items():
-            f.write("- %s：%s %s\n" % (k, "正常" if v["ok"] else "失败(" + str(v.get("reason")) + ")",
-                                    (str(v["ms"]) + " ms") if v.get("ms") else ""))
+            f.write("- 站点 %s：%s %s\n" % (k, "正常" if v["ok"] else "失败(" + str(v.get("reason")) + ")",
+                                       (str(v["ms"]) + " ms") if v.get("ms") else ""))
+        bad = [t for (t, kind, u), (ok, _) in line_res.items() if kind == "live" and not ok]
+        if bad:
+            f.write("- 当天不通的频道：%s\n" % "、".join(sorted(bad)))
     if DRY:
         print("(dry-run，未写入文件)")
 
