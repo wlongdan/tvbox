@@ -29,6 +29,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 FAIL_LIMIT = 5        # 站点连续失败几次动配置（按机房视角判定，放宽给家宽留余量）
 RECOVER_LIMIT = 2     # 站点连续成功几次加回
 MIN_SITES = 6         # 站点下限保护
+AUTO_PARK = False     # 站点只报状态、不自动移出（机房视角与家宽差异大，避免误删）
 SWITCH_LIMIT = 3      # 直播现用线路连续失败几次换备用
 MIN_LIVE_RATIO = 0.2  # 当天可用线路低于两成视为网络异常
 CTX = ssl.create_default_context()
@@ -214,7 +215,7 @@ def main():
     keep = []
     for s in alive:
         st = sites_state[s["key"]]
-        if net_ok and st["fail_streak"] >= FAIL_LIMIT and len(alive) - len(report["removed"]) > MIN_SITES:
+        if AUTO_PARK and net_ok and st["fail_streak"] >= FAIL_LIMIT and len(alive) - len(report["removed"]) > MIN_SITES:
             parked[s["key"]] = s
             report["removed"].append(s["key"])
             print("  → 移出 %s（连续 %d 次失败）" % (s["name"], st["fail_streak"]))
