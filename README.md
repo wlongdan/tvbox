@@ -1,18 +1,18 @@
 # TVBox 自用接口
 
-一条地址填进 TVBox（影视仓 / OK影视 / 派清新等均可）。下面这条国内可直接访问，内容跟着仓库最新版走（无缓存）：
+一条地址填进 TVBox（影视仓 / OK影视 / 派清新等均可）：
 
 ```
-https://gh-proxy.com/https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
+https://ghfast.top/https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json?r=1
 ```
 
-备用（主地址打不开时换这条，内容一样）：
+备用（内容一样，主地址打不开时换这条）：
 
 ```
-https://ghproxy.net/https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json
+https://gh-proxy.com/https://raw.githubusercontent.com/wlongdan/tvbox/main/config.json?r=1
 ```
 
-说明：`raw.githubusercontent.com` 在部分网络被拦；`cdn.jsdelivr.net` 与 `fastly.jsdelivr.net` 的 `@main` 走了长缓存，实测会返回几周前的旧版本，清缓存也刷不掉，所以不推荐。直播清单已写成绝对地址，不依赖相对路径解析。
+说明：`raw.githubusercontent.com` 在部分网络被拦；`cdn.jsdelivr.net` / `fastly.jsdelivr.net` 的 `@main` 走长缓存，实测返回的是几周前的老版本，清缓存也刷不掉，所以不用。直播清单已写成绝对地址，不依赖相对路径解析。
 
 ## 里面有什么
 
