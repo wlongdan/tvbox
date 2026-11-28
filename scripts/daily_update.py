@@ -26,10 +26,10 @@ POOL = os.path.join(ROOT, "live-pool.m3u")
 STATE = os.path.join(ROOT, "state.json")
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"}
-FAIL_LIMIT = 3        # 站点连续失败几次动配置
+FAIL_LIMIT = 5        # 站点连续失败几次动配置（按机房视角判定，放宽给家宽留余量）
 RECOVER_LIMIT = 2     # 站点连续成功几次加回
 MIN_SITES = 6         # 站点下限保护
-SWITCH_LIMIT = 2      # 直播现用线路连续失败几次换备用
+SWITCH_LIMIT = 3      # 直播现用线路连续失败几次换备用
 MIN_LIVE_RATIO = 0.2  # 当天可用线路低于两成视为网络异常
 CTX = ssl.create_default_context()
 CTX.check_hostname = False

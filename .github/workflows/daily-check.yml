@@ -35,5 +35,6 @@ jobs:
             echo "无变更，跳过提交"
           else
             git commit -m "每日自检 $(date -u +%F)"
+            git pull --rebase origin main || true
             git push
           fi
