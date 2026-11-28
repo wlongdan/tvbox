@@ -133,24 +133,6 @@
       ]
     },
     {
-      "key": "s10010888",
-      "name": "10010888",
-      "type": 1,
-      "api": "https://cj.10010888.xyz/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "categories": [
-        "电影",
-        "连续剧",
-        "综艺",
-        "动漫",
-        "少儿",
-        "纪录片",
-        "短剧"
-      ]
-    },
-    {
       "key": "juliang",
       "name": "巨量资源",
       "type": 1,
