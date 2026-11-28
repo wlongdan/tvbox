@@ -112,9 +112,10 @@ def check_line(url):
 def write_live(groups, path):
     out = ["#EXTM3U"]
     for tname, g in groups.items():
-        out.append('#EXTINF:-1 tvg-id="%s" tvg-name="%s" group-title="%s",%s' % (
-            g["tid"], tname, g["group"], tname))
-        out.append(g["urls"][0])
+        for u in g["urls"]:
+            out.append('#EXTINF:-1 tvg-id="%s" tvg-name="%s" group-title="%s",%s' % (
+                g["tid"] or tname, tname, g["group"], tname))
+            out.append(u)
     open(path, "w", encoding="utf-8").write("\n".join(out) + "\n")
 
 
