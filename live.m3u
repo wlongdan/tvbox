@@ -102,10 +102,8 @@ http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009
 #EXTINF:-1 tvg-id="" tvg-name="CCTV-5+ 体育赛事" group-title="央视",CCTV-5+ 体育赛事·线路3
 http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv5p
 #EXTINF:-1 tvg-id="" tvg-name="CGTN 中国国际" group-title="央视",CGTN 中国国际·线路1
-https://english-livetx.cgtn.com/hls/yypdjlctzb_hd.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CGTN 中国国际" group-title="央视",CGTN 中国国际·线路2
 https://0472.org/hls/cgtn.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CGTN 中国国际" group-title="央视",CGTN 中国国际·线路3
+#EXTINF:-1 tvg-id="" tvg-name="CGTN 中国国际" group-title="央视",CGTN 中国国际·线路2
 https://0472.org/hls/cgtnx.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="北京卫视" group-title="卫视",北京卫视·线路1
 http://107.150.60.122/live/bjwshd.m3u8
